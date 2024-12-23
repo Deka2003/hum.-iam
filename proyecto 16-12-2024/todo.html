@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do UPDS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #030d02, #0c4230 75%, #71aaac 50%, #0c4230 75%, #030d02); /* Fondo con gradiente lineal */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: radial-gradient(circle, #005500, #00e600, #00cc00, #006400);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: radial-gradient(circle, #005500, #00e600, #00cc00, #006400);
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+            background-color: #a5d6a7;
+        }
+
+        .remove-btn {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .add-btn {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .celebration {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .celebration.show {
+            display: block;
+            color: #4caf50;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To Do UPDS</h1>
+        <ul id="task-list">
+            <li>Ir a la universidad <button class="remove-btn">Eliminar</button></li>
+            <li>Realizar tareas <button class="remove-btn">Eliminar</button></li>
+            <li>Estudiar media hora <button class="remove-btn">Eliminar</button></li>
+        </ul>
+
+        <input type="text" id="new-task" placeholder="Nueva actividad...">
+        <button class="add-btn" onclick="addTask()">Agregar actividad</button>
+
+        <div class="celebration" id="victory-message">¡Todas las actividades completadas!</div>
+    </div>
+
+    <script>
+        const taskList = document.getElementById('task-list');
+        const victoryMessage = document.getElementById('victory-message');
+
+        // Función para agregar actividades
+        function addTask() {
+            const taskText = document.getElementById('new-task').value;
+            if (taskText.trim() === '') {
+                return;
+            }
+
+            const li = document.createElement('li');
+            li.textContent = taskText;
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = 'Eliminar';
+            removeBtn.className = 'remove-btn';
+            removeBtn.onclick = removeTask;
+            li.appendChild(removeBtn);
+            li.onclick = toggleComplete;
+
+            taskList.appendChild(li);
+            document.getElementById('new-task').value = '';
+
+            checkVictory();
+        }
+
+        // Función para eliminar actividades
+        function removeTask(event) {
+            event.target.parentElement.remove();
+            checkVictory();
+        }
+
+        // Función para marcar como completada una actividad
+        function toggleComplete(event) {
+            if (event.target.tagName === 'LI') {
+                event.target.classList.toggle('completed');
+                checkVictory();
+            }
+        }
+
+        // Verificar si todas las actividades están completadas
+        function checkVictory() {
+            const tasks = taskList.getElementsByTagName('li');
+            const allCompleted = Array.from(tasks).every(task => task.classList.contains('completed'));
+
+            if (allCompleted && tasks.length > 0) {
+                victoryMessage.classList.add('show');
+            } else {
+                victoryMessage.classList.remove('show');
+            }
+        }
+    </script>
+</body>
+</html>

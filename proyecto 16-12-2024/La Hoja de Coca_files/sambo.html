@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="https://api.whatsapp.com/send?phone=+59174539062" target="_blank">
+        <img src="whatsapp.png" alt="WhatsApp" style="width:24px;height:24px;">
+    </a>
+    
+
+    <form id="formulario">
+        <input type="text" id="nombre" placeholder="Nombre">
+        <input type="text" id="numero" placeholder="Número de teléfono">
+        <input type="text" id="cita" placeholder="Cita">
+        <button type="button" onclick="enviarMensaje()">Enviar</button>
+    </form>
+    
+    
+    <script>
+
+    function agregarMensaje() {
+    var spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+    var sheet = spreadsheet.getActiveSheet();
+    var lastRow = sheet.getLastRow();
+    sheet.getRange(lastRow + 1, 1).setValue("Nuevo mensaje");
+    }
+
+
+    function enviarMensaje() {
+        var nombre = document.getElementById('nombre').value;
+        var numero = document.getElementById('numero').value;
+        var cita = document.getElementById('cita').value;
+        var mensaje = nombre + " - " + numero + " - " + cita;
+        window.open("https://api.whatsapp.com/send?phone=+59174539062&text=" + encodeURIComponent(mensaje));
+    }
+    
+    
+    </script>
+</body>
+</html>

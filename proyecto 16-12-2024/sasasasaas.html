@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegación Estática</title>
+    <link rel="stylesheet" href="styles.css">}
+
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.scrolling-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.scrolling-nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.scrolling-nav ul li {
+    margin-right: 20px;
+}
+
+.scrolling-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px;
+    background-color: #ddd;
+    border-radius: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="scrolling-nav">
+        <ul>
+            <li><a href="#inicio" class="button">Inicio</a></li>
+            <li><a href="#historia" class="button">Historia de la Coca</a></li>
+            <li><a href="#cultivo" class="button">Cultivo y Producción</a></li>
+            <li><a href="#impacto" class="button">Impacto Socioeconómico</a></li>
+            <li><a href="#calculadora" class="button">Calculadora</a></li>
+        </ul>
+        <div class="social-icons">
+            <a href="https://wa.me/tuNumeroDeTelefono" target="_blank">
+                <img src="whatsapp-icon.png" alt="WhatsApp">
+            </a>
+            <a href="https://www.facebook.com/tuPerfil" target="_blank">
+                <img src="facebook-icon.png" alt="Facebook">
+            </a>
+            <a href="https://www.instagram.com/tuPerfil" target="_blank">
+                <img src="instagram-icon.png" alt="Instagram">
+            </a>
+        </div>
+    </nav>
+</body>
+</html>

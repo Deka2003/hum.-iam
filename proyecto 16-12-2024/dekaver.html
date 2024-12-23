@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #030d02, #0c4230 75%, #71aaac 50%, #0c4230 75%, #030d02);
+        }
+
+        .containerdos {
+            text-align: center;
+            background: radial-gradient(circle, #00ff00, #00cc00, #009900, #006400);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 15px;
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: bold; /* Texto en negrita */
+        }
+
+        input, textarea {
+            margin-top: 10px;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: radial-gradient(circle, #00ff00, #00cc00, #009900, #006400);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            color: #ffffff;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 18px;
+            background: radial-gradient(circle, #006400, #00cc00, #00ff00, #009900);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: radial-gradient(circle, #072607, #126d12, #1d621d, #006400);
+        }
+
+        button:active {
+            background: radial-gradient(circle, #005500, #00e600, #00cc00, #006400);
+        }
+    </style>
+</head>
+<body>
+    <div class="containerdos">
+        <h1>Formulario de Contacto</h1>
+        <form id="contact-form">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="numero">Número de Cel:</label>
+            <input type="text" id="numero" name="numero" required>
+            
+            <label for="motivo">Motivo de Contacto:</label>
+            <textarea id="motivo" name="motivo" rows="4" required></textarea>
+            
+            <button type="button" onclick="enviarWhatsApp()">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        function enviarWhatsApp() {
+            var nombre = document.getElementById('nombre').value;
+            var numero = document.getElementById('numero').value;
+            var motivo = document.getElementById('motivo').value;
+            var mensaje = `Nombre: ${nombre}\nNúmero: ${numero}\nMotivo: ${motivo}`;
+            var telefono = "+59174539062"; // Reemplaza con el número de teléfono correcto
+            var url = "https://web.whatsapp.com/send?phone=" + telefono + "&text=" + encodeURIComponent(mensaje);
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>

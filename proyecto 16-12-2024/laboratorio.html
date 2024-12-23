@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Relacionada</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #030d02, #0c4230 75%, #71aaac 50%, #0c4230 75%, #030d02); /* Fondo con gradiente lineal */
+        }
+        nav {
+            background-color: #333; /* Color de fondo de la barra de navegación */
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: center; /* Centra los elementos en la barra de navegación */
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            background-color: #555; /* Color de fondo de los botones */
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: #777; /* Color de fondo al pasar el cursor */
+        }
+        .volver {
+            display: flex;
+            align-items: center;
+            margin-left: 20px; /* Espaciado entre los botones de la barra de navegación y el botón de volver */
+        }
+        .volver a {
+            background-color: #ffcc00;
+            padding: 10px 15px;
+            border-radius: 5px;
+            color: black;
+            text-decoration: none;
+        }
+        .volver a:hover {
+            background-color: #ff9900;
+        }
+        main {
+            text-align: center; /* Centra el contenido principal */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#subseccion1">Temporada</a></li>
+            <li><a href="#subseccion2">Cosecha</a></li>
+        </ul>
+        <div class="volver">
+            <a href="index.html#cultivo">Volver</a>
+        </div>
+    </nav>
+    <main>
+        <center><img src="images (1).jpeg" alt=""></center>
+
+        <section id="subseccion1">
+            <h2>Temporada</h2>
+            <p>Contenido de la subsección 1.</p>
+        </section>
+        <section id="subseccion2">
+            <h2>Cosecha</h2>
+            <p>Contenido de la subsección 2.</p>
+        </section>
+    </main>
+</body>
+</html>
